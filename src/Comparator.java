@@ -16,9 +16,9 @@ public class Comparator {
             String text1 = readText( reader );
             reader = new BufferedReader( new FileReader( input2 ) );
             String text2 = readText( reader );
-            Sequance sequance = findMSS( text1, text2 );
-            System.out.println( sequance.sqnc1 );
-            System.out.println( sequance.sqnc2 );
+            Sequence sequence = findMSS( text1, text2 );
+            System.out.println( sequence.sqnc1 );
+            System.out.println( sequence.sqnc2 );
         } catch ( Exception e ) {
 
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class Comparator {
     }
 
 
-    private static Sequance findMSS( String a, String b ) {
+    private static Sequence findMSS(String a, String b ) {
 
         int m = a.length();
         int n = b.length();
@@ -132,13 +132,13 @@ public class Comparator {
                 aDiffLength--;
             }
         }
-        Sequance sequance = new Sequance();
-        sequance.sqnc1 = String.valueOf( lcs, 0, lcs.length - 1 );
-        sequance.sqnc2 = String.valueOf( aDiff );
-        return sequance;
+        Sequence sequence = new Sequence();
+        sequence.sqnc1 = String.valueOf( lcs, 0, lcs.length - 1 );
+        sequence.sqnc2 = String.valueOf( aDiff );
+        return sequence;
     }
 
-    private static class Sequance {
+    private static class Sequence {
 
         private String sqnc1;
         private String sqnc2;
